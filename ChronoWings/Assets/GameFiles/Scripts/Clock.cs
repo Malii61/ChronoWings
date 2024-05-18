@@ -9,6 +9,8 @@ public class Clock : MonoBehaviour
             if (!bird.IsAI())
             {
                 Level.GetInstance().PIPE_MOVE_SPEED += 5;
+                BackgroundSound.Instance.OnClockCollected();
+                SoundManager.PlaySound(SoundManager.Sound.ClockCollected);
                 gameObject.SetActive(false);
             }
         }

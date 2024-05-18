@@ -123,7 +123,7 @@ public class Bird : MonoBehaviour
         birdRigidbody2D.bodyType = RigidbodyType2D.Static;
         
         if (aiPlays)
-            transform.position = new Vector3(-10, 0, 0);
+            transform.position = new Vector3(-10, 8, 0);
         else
             transform.position = Vector3.zero;
         
