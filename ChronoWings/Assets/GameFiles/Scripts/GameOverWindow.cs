@@ -10,7 +10,7 @@ public class GameOverWindow : MonoBehaviour {
 
     private Text scoreText;
     private Text highscoreText;
-
+    [SerializeField] private Text gameOverText;
     private void Awake() {
         scoreText = transform.Find("scoreText").GetComponent<Text>();
         highscoreText = transform.Find("highscoreText").GetComponent<Text>();
@@ -25,21 +25,12 @@ public class GameOverWindow : MonoBehaviour {
     }
 
     private void Start() {
-        //Debug.Log("GameOverWindow Disabled");
-        Bird.GetInstance().OnDied += Bird_OnDied;
+        GameHandler.Instance.OnDied += Bird_OnDied;
         Hide();
     }
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            // Retry
-            Loader.Load(Loader.Scene.GameScene);
-        }
-    }
-
     private void Bird_OnDied(object sender, System.EventArgs e) {
         scoreText.text = Level.GetInstance().GetPipesPassedCount().ToString();
-
+        gameOverText.text = GameHandler.Instance.IsWin ? "YOU BEAT AI!" : "AI WINS..";
         if (Level.GetInstance().GetPipesPassedCount() >= Score.GetHighscore()) {
             // New Highscore!
             highscoreText.text = "NEW HIGHSCORE";

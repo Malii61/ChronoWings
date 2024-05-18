@@ -16,7 +16,7 @@ public class BirdAgent : Agent {
     }
 
     private void Start() {
-        bird.OnDied += Bird_OnDied;
+        GameHandler.Instance.OnDied += Bird_OnDied;
         level.OnPipePassed += Level_OnPipePassed;
     }
 

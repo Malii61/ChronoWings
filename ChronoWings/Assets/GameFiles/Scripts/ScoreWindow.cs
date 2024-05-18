@@ -15,7 +15,7 @@ public class ScoreWindow : MonoBehaviour {
 
     private void Start() {
         highscoreText.text = "HIGHSCORE: " + Score.GetHighscore().ToString();
-        Bird.GetInstance().OnDied += ScoreWindow_OnDied;
+        GameHandler.Instance.OnDied += ScoreWindow_OnDied;
         Bird.GetInstance().OnStartedPlaying += ScoreWindow_OnStartedPlaying;
         Hide();
     }

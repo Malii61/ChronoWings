@@ -18,7 +18,7 @@ public class SpriteAnimator : MonoBehaviour {
     
     private void Awake() {
         timerMax = 1f/framesPerSecond;
-        spriteRenderer = transform.GetComponent<SpriteRenderer>();
+        spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
         if (frames != null) {
             spriteRenderer.sprite = frames[0];
         } else {

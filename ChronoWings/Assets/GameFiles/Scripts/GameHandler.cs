@@ -1,15 +1,28 @@
-﻿
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey;
-using CodeMonkey.Utils;
 
-public class GameHandler : MonoBehaviour {
+public class GameHandler : MonoBehaviour
+{
+    public static GameHandler Instance;
+    public bool IsWin = false;
+    public static bool isGameEnded = false;
+    public EventHandler OnDied;
+
+    private void Awake()
+    {
+        Instance = this;
+        isGameEnded = false;
+    }
 
     private void Start() {
-        Debug.Log("GameHandler.Start");
         Score.Start();
     }
 
+    public void Died()
+    {
+        OnDied?.Invoke(this,EventArgs.Empty);
+        isGameEnded = true;
+    }
 }
