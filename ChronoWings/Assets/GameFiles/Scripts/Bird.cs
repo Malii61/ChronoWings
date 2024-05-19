@@ -34,6 +34,8 @@ public class Bird : MonoBehaviour
         birdRigidbody2D = GetComponent<Rigidbody2D>();
         birdRigidbody2D.bodyType = RigidbodyType2D.Static;
         state = State.WaitingToStart;
+        if (!aiPlays)
+            transform.position = new Vector3(7, 5, 0);
     }
 
     public bool IsAI()
@@ -123,9 +125,8 @@ public class Bird : MonoBehaviour
         birdRigidbody2D.bodyType = RigidbodyType2D.Static;
 
         if (aiPlays)
-            transform.position = new Vector3(-7, 20, 0);
-        else
-            transform.position = new Vector3(3, 5, 0);
+            transform.position = new Vector3(-3, 15, 0);
+
 
         state = State.WaitingToStart;
     }

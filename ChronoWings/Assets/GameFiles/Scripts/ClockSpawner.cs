@@ -14,6 +14,7 @@ public class ClockSpawner : MonoBehaviour
     private void Start()
     {
         GameHandler.Instance.OnDied += OnFinished;
+        clockPrefab.gameObject.SetActive(false);
         SpawnClock();
     }
 

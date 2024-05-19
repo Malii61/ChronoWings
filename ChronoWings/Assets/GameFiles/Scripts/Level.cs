@@ -21,6 +21,7 @@ public class Level : MonoBehaviour
 
 
     private static Level instance;
+    private bool isFirstPipe = true;
 
     public static Level GetInstance()
     {
@@ -219,8 +220,9 @@ public class Level : MonoBehaviour
 
             //Debug.Log("## CHANGES"); height = 50f;
             //Debug.Log("pipeSpawnTimerMax: " + pipeSpawnTimerMax + "; gapSize: " + gapSize);
-
-            CreateGapPipes(height, gapSize, PIPE_SPAWN_X_POSITION);
+            var pipeSpawnPos = isFirstPipe ? PIPE_SPAWN_X_POSITION - 25 : PIPE_SPAWN_X_POSITION;
+            isFirstPipe = false;
+            CreateGapPipes(height, gapSize, pipeSpawnPos);
         }
     }
 
