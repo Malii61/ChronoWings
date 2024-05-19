@@ -121,12 +121,12 @@ public class Bird : MonoBehaviour
     {
         birdRigidbody2D.velocity = Vector2.zero;
         birdRigidbody2D.bodyType = RigidbodyType2D.Static;
-        
+
         if (aiPlays)
-            transform.position = new Vector3(-10, 8, 0);
+            transform.position = new Vector3(-7, 20, 0);
         else
-            transform.position = Vector3.zero;
-        
+            transform.position = new Vector3(3, 5, 0);
+
         state = State.WaitingToStart;
     }
 
